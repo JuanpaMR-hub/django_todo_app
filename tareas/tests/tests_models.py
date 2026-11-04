@@ -8,7 +8,14 @@ class TareaTestCase(TestCase):
         cls.tarea = Tarea.objects.create(titulo = "Tarea de ejemplo")
 
 
+    #Este seria un ejemplo de un test innecesario
+    # Ya que solamente está revisando si los datos se guardan. Pero Django siempre hace eso
     def test_tarea_contenido(self):
         self.assertEqual(self.tarea.titulo,'Tarea de ejemplo')
-        self.assertEqual(self.tarea.completed,False)
-        self.assertNotEqual(self.tarea.created_at,'')
+        self.assertFalse(self.tarea.completed)
+        self.assertTrue(self.tarea.created_at)
+
+
+    # Un test correctamente usado sería cuando se implemente una lógica unica
+    # Cosas como sobrescribir alguna función, validaciones, etc
+    
